@@ -50,7 +50,7 @@
 
 <style lang="scss" scoped>
     .mint-swipe{
-        height: 180px;
+        height: 180px; 
     .mint-swipe-item{
         img{
             height: 100%;
