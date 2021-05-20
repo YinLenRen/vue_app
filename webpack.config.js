@@ -2,7 +2,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
-    entry:'./main.js',
+    entry:'./src/main.js',
     output:{
         path:__dirname,
         filename:'bundle.js',
@@ -46,7 +46,7 @@ module.exports = {
       }, 
       plugins:[
           new htmlWebpackPlugin({
-              template:'index.html' //为index.html自动引入打包好的bundle.js
+              template:'./src/index.html' //为index.html自动引入打包好的bundle.js
           }),
           new VueLoaderPlugin()
       ]
