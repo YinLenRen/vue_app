@@ -3,16 +3,13 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
-import Mint from 'mint-ui'
-Vue.use(Mint)
+import './filter.js'
 
-import axios from 'axios'
-Vue.prototype.$http = axios.create({
-    baseURL:"http://www.liulongbin.top:3005/"
-})
+import './globalConfig.js'
+
 
 import router from './router.js'
-import app from '../App.vue'
+import app from './component/App.vue'
 import 'mint-ui/lib/style.css'
 import '../lib/mui/css/mui.css'
 import '../lib/mui/css/icons-extra.css'
