@@ -7,10 +7,15 @@
 		</p>
 		<hr>
 		<div class="content" v-html="newsInfo.content"></div>
+
+		<!--评论子组件-->
+		<comment :commentId="id"></comment>
     </div>
 </template>
 
 <script>
+
+import comment from '../publicComponents/comment.vue'
 
 export default{
 	data(){
@@ -27,7 +32,10 @@ export default{
             if(data.status === 0)  this.newsInfo = data.message[0];
         }
 	},
-    props:['id']
+    props:['id'],
+	components:{
+		comment
+	}
 }
 
 </script>

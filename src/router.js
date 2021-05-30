@@ -1,11 +1,12 @@
 import VueRouter from 'vue-router'
 
-import home from './component/homeFragment.vue'
-import member from './component/memberFragment.vue'
-import search from './component/searchFragment.vue'
-import shoppingcart from './component/shoppingcartFragment.vue'
-import newList from './news/newList.vue'
-import newsInfo from './news/newsInfo.vue'
+import home from './components/tabbars/homeFragment.vue'
+import member from './components/tabbars/memberFragment.vue'
+import search from './components/tabbars/searchFragment.vue'
+import shoppingcart from './components/tabbars/shoppingcartFragment.vue'
+import newList from './components/news/newList.vue'
+import newsInfo from './components/news/newsInfo.vue'
+import photoList from './components/photos/photoList.vue'
 
 var router = new VueRouter({
     routes:[
@@ -15,7 +16,8 @@ var router = new VueRouter({
         {path:'/search', component:search},
         {path:'/shoppingcart', component:shoppingcart},
         {path:'/home/newList', component:newList},
-        {path:'/home/newList/:id', component:newsInfo, props:true}
+        {path:'/home/newList/:id', component:newsInfo, props:true},
+        {path:'/home/photoList', component:photoList}
     ],
     linkActiveClass:'mui-active'
 })

@@ -9,10 +9,11 @@ import './globalConfig.js'
 
 
 import router from './router.js'
-import app from './component/App.vue'
+import app from './App.vue'
 import 'mint-ui/lib/style.css'
 import '../lib/mui/css/mui.css'
 import '../lib/mui/css/icons-extra.css'
+
 
 var vm = new Vue({
     el:'#app',

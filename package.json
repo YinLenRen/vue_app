@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-plugin-transform-remove-strict-mode": "0.0.2",
     "mint-ui": "^2.2.13",
     "moment": "^2.29.1",
     "vue": "^2.6.11",
