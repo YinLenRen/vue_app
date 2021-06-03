@@ -3,20 +3,21 @@
         <div id="slider" class="mui-slider">
 			<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
 				<div class="mui-scroll">
-					<span :class="['mui-control-item', item.id === 0 ? 'mui-active':'']" v-for="item in category" :key="item.id">
+					<span :class="['mui-control-item', item.id === 0 ? 'mui-active':'']" 
+						v-for="item in category" :key="item.id" @click="getPhotoByCategory(item.id)">
 						{{item.title}}
 					</span>
 				</div>
 			</div>
 		</div>
         <ul class="lazyUI"> 
-			<li v-for="item in photoList" :key="item.id">
+			<router-link tag="li" v-for="item in photoList" :key="item.id" :to="'/home/photoInfo/' + item.id">
 				<img v-lazy="item.img_url">
 				<div class="info">
 					<h1 class="info-title">{{item.title}}</h1>
 					<div class="info-content">{{item.seo_description}}</div>
 				</div>
-			</li>
+			</router-link>
 		</ul>
     </div>
 </template>

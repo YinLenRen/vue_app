@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h4>发表评论</h4>
+        <h4>发表评论~~~~{{commentId}}</h4>
         <hr>
         <textarea placeholder="请输入要BB的内容(不超过120字)" maxlength="120" v-model="message"></textarea>
         <mt-button type="primary" size="large" @click="sendMessage">发表评论</mt-button>

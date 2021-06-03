@@ -7,6 +7,7 @@ import shoppingcart from './components/tabbars/shoppingcartFragment.vue'
 import newList from './components/news/newList.vue'
 import newsInfo from './components/news/newsInfo.vue'
 import photoList from './components/photos/photoList.vue'
+import photoInfo from './components/photos/photoInfo.vue'
 
 var router = new VueRouter({
     routes:[
@@ -17,7 +18,8 @@ var router = new VueRouter({
         {path:'/shoppingcart', component:shoppingcart},
         {path:'/home/newList', component:newList},
         {path:'/home/newList/:id', component:newsInfo, props:true},
-        {path:'/home/photoList', component:photoList}
+        {path:'/home/photoList', component:photoList},
+        {path:'/home/photoInfo/:id', component:photoInfo, props:true}
     ],
     linkActiveClass:'mui-active'
 })
