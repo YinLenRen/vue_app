@@ -5,6 +5,10 @@
             <span>发表时间：{{photoInfo.add_time|dateFormate}}</span>
             <span>点击次数：{{photoInfo.click}}</span>
         </p>
+        <!--缩略图-->
+        <div class="thumb-list">
+            <img :src="item.src" v-for="(item, index) in photoList" :key= "index">
+        </div>
 
 
         <div class="content" v-html="photoInfo.content"></div>
@@ -22,16 +26,24 @@ import comment from '../publicComponents/comment.vue'
 export default{
     data(){
         return{
-            photoInfo:[]
+            photoInfo:[],
+            photoList:[]//缩略图
         };
     },
     created(){
         this.getPhotoInfo();
+        this.getThumbImag();
     },
     methods:{
         async getPhotoInfo(){
             const {data} = await this.$http.get("api/getimageInfo/" + this.id);
             if(data.status === 0) this.photoInfo = data.message[0];
+        },
+        async getThumbImag(){
+            //缩略图数据
+            const {data} = await this.$http.get("api/getthumimages/" + this.id);
+            if(data.status === 0) this.photoList = data.message;
+         //   console.log(this.photList);
         }
     },
     props:["id"],
@@ -60,5 +72,10 @@ export default{
     font-size: 13px;
     line-height: 30px;
     text-indent: 2em;
+}
+.thumb-list{
+    img{
+        width:100px;
+    }
 }
 </style>
