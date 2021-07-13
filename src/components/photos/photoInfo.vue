@@ -7,7 +7,7 @@
         </p>
         <!--缩略图-->
         <div class="thumb-list">
-            <img :src="item.src" v-for="(item, index) in photoList" :key= "index">
+            <img :src="item.src" v-for="(item, i) in photoList" :key= "i">
         </div>
 
 
