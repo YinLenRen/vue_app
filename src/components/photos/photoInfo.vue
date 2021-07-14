@@ -7,11 +7,10 @@
         </p>
         <!--缩略图-->
         <div class="thumb-list">
-            <img :src="item.src" v-for="(item, i) in photoList" :key= "i">
+            <vue-preview :slides="photoList"></vue-preview>
         </div>
 
-
-        <div class="content" v-html="photoInfo.content"></div>
+        <div class="content" v-html="photoInfo.content" @close="handleClose"></div>
 
         <!--评论子组件-->
         <comment :commentId="id"></comment>
@@ -22,6 +21,9 @@
 <script>
 
 import comment from '../publicComponents/comment.vue'
+//import mui from '../../../lib/mui/js/mui.js'
+//import '../../../lib/mui/js/mui.zoom.js'
+//import '../../../lib/mui/js/mui.previewimage.js'
 
 export default{
     data(){
@@ -42,9 +44,18 @@ export default{
         async getThumbImag(){
             //缩略图数据
             const {data} = await this.$http.get("api/getthumimages/" + this.id);
-            if(data.status === 0) this.photoList = data.message;
-         //   console.log(this.photList);
-        }
+            if(data.status === 0) {
+                data.message.forEach(item => {
+                    item.w = 600;
+                    item.h = 400;
+                    item.msrc = item.src;
+                });
+                this.photoList = data.message;
+            }
+        },
+        handleClose () {
+        console.log('close event')
+      }
     },
     props:["id"],
     components:{
@@ -73,9 +84,19 @@ export default{
     line-height: 30px;
     text-indent: 2em;
 }
-.thumb-list{
-    img{
-        width:100px;
+.thumb-list {
+    /deep/ .my-gallery{   //deep深层作用选择器
+    display: flex;
+    flex-wrap:wrap;//默认换行
+    figure{
+        width: 30%;
+        margin: 5px;
+        img{
+            width: 100%;
+            box-shadow: 0 0 6px #999;
+            border-radius: 5px;
+            }
+        }
     }
 }
 </style>
